@@ -174,6 +174,15 @@ class ID3v2 < DelegateClass(Hash)
   # for read and write tag2 values.
   attr_reader :options
   
+  # ruby 1.9 fixes
+  def to_s
+    @hash.to_s
+  end
+  
+  def inspect
+    to_s
+  end
+  
   # possible options are described above ('options' attribute)
   # you can access this object like an hash, with [] and []= methods
   # special cases are ["disc_number"] and ["disc_total"] mirroring TPOS attribute
